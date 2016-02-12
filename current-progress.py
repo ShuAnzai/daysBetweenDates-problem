@@ -23,7 +23,7 @@ def daysInMonth(year, month): #works correctly
             return 30
         if month == 9:
             return 30
-        if month == 1:
+        if month == 11:
             return 30
         if month == 2: 
             return 28
@@ -31,7 +31,6 @@ def daysInMonth(year, month): #works correctly
             return 31
 
 def nextDay(year, month, day):   #works correctly
-    """Simple version: assume every month has 30 days"""
     if day < daysInMonth(year,month):
         return year, month, day + 1
     else:
@@ -63,20 +62,11 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):   #only working 
         days += 1
     return days
 
-print 'test cases not working:'
-print daysBetweenDates(2012,1,1,2012,2,28) #should be 58
-print daysBetweenDates(2012,1,1,2012,3,1) #should be 60
-print daysBetweenDates(2011,1,1,2012,8,8) #should be 585
-
-print 'test cases working fine:'
-print daysBetweenDates(2011,6,30,2012,6,30) #should be 366
-print daysBetweenDates(1900,1,1,1999,12,31) #should be 36523
-
 def test():
-    test_cases = [((2012,1,1,2012,2,28), 58), #not working
-                  ((2012,1,1,2012,3,1), 60), #not working
+    test_cases = [((2012,1,1,2012,2,28), 58),
+                  ((2012,1,1,2012,3,1), 60),
                   ((2011,6,30,2012,6,30), 366),
-                  ((2011,1,1,2012,8,8), 585 ), #not working
+                  ((2011,1,1,2012,8,8), 585 ),
                   ((1900,1,1,1999,12,31), 36523)]
     
     for (args, answer) in test_cases:
